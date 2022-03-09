@@ -6,10 +6,11 @@ def call(body){
     
     pipeline {
       agent any
-        stage('TEST!'){
-            steps {
-                writeFile file: "/main.tf", text: """
-terraform {
+      stages{
+          stage('TEST!'){
+              steps {
+                  writeFile file: "/main.tf", text: """
+				  terraform {
   required_version = ">= 0.14"
   required_providers {
     aws = {
@@ -56,7 +57,8 @@ output "consul_addr" {
   value = module.hashistack_cluster.consul_addr
 }
 """
-            }
-        }  
+              }
+          }  
+      }    
     }
 }
