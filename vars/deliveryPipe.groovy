@@ -5,7 +5,7 @@ def call(body){
     body()
     
     pipeline {
-        agent any
+      agent any
         stage('TEST!'){
             steps {
                 writeFile file: "/main.tf", text: """
