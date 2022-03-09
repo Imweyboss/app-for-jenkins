@@ -1,14 +1,10 @@
-def call(text){
-    def pipelineParams = [:]
-    text.resolveStrategy = Closure.DELEGATE_FIRST
-    text.delegate = pipelineParams
-    text()
-  pipeline {
-      agent any
-    stage('TEST!'){
-      steps {
-        echo 'TSSSSSSSSSSSS'
-      }
-    }  
-  }
+def call(Map pipelineParams){
+    pipeline {
+        agent any
+        stages('TEST!'){
+            steps {
+                echo 'TSSSSSSSSSSSS'
+            }
+        }  
+    }
 }
