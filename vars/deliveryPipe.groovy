@@ -20,14 +20,14 @@ def call(body){
   backend "s3" {
     region = "eu-north-1"
     bucket = "eu-north-1-terraform"
-    key    = "${INFRA_NAME}.tfstate"
+    key    = "test_name.tfstate"
   }
 }
 module "hashistack_cluster" {
   source = "${WORKSPACE}/mm-deploy/aws-terraform/_terraform"
-  stack_name        = "${INFRA_NAME}"
-  route_53_host     = "${DOMAIN}"
-  volume_name       = "${DATABASE_VERSION}"
+  stack_name        = "test_name"
+  route_53_host     = "127.0.0.1"
+  volume_name       = "10.5"
   volume_efs_mount  = "fsmt-0e1dff8c8a6870f08"
   app_name          = "mxn"
   client_instance = {
